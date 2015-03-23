@@ -31,20 +31,11 @@ public class MainActivity extends Activity {
         numbers.add("tel:33333");
 
 
-       // String url = "tel:11111";
-
-//        for(String url:numbers) {
-        /*
-            Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(url));
-
-            startActivity(intent);
-            //finish();
-*/
             TelephonyManager TelephonyMgr = (TelephonyManager) getSystemService(Context.TELEPHONY_SERVICE);
             TelephonyMgr.listen(new TeleListener(),
                     PhoneStateListener.LISTEN_CALL_STATE);
 
-      //  }
+
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,20 +59,15 @@ public class MainActivity extends Activity {
                     {
                         finish();
                     }
-                    Toast.makeText(getApplicationContext(), "CALL_STATE_IDLE",
-                            Toast.LENGTH_LONG).show();
+
                     break;
                 case TelephonyManager.CALL_STATE_OFFHOOK:
                     // CALL_STATE_OFFHOOK;
-                    Toast.makeText(getApplicationContext(), "CALL_STATE_OFFHOOK",
-                            Toast.LENGTH_LONG).show();
+
                     break;
                 case TelephonyManager.CALL_STATE_RINGING:
                     // CALL_STATE_RINGING
-                    Toast.makeText(getApplicationContext(), incomingNumber,
-                            Toast.LENGTH_LONG).show();
-                    Toast.makeText(getApplicationContext(), "CALL_STATE_RINGING",
-                            Toast.LENGTH_LONG).show();
+
                     break;
                 default:
                     break;
@@ -102,9 +88,6 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse(url));
 
         startActivity(intent);
-        //finish();
-
-
 
     }
 
